@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "917482947030",
+    "firebase_url": "https://wenxlufood.firebaseio.com",
+    "project_id": "wenxlufood",
+    "storage_bucket": "wenxlufood.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917482947030:android:d088744106dba6849c6477",
+        "android_client_info": {
+          "package_name": "tw.org.iii.appps.wenxlufood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917482947030-h37gl2m1b437t5f66rl234rcik6lje95.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tw.org.iii.appps.wenxlufood",
+            "certificate_hash": "aa950d09e3530bccda8eaa3741a1f1a73face127"
+          }
+        },
+        {
+          "client_id": "917482947030-q5ag90gvkh2tru8defnog34c2ct59h6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYQaxN5_u-83ZOM_86c5qlu7WgvpY8B34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917482947030-q5ag90gvkh2tru8defnog34c2ct59h6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
