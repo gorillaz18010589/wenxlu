@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signinn">
+    android:background="@drawable/siginbackground"
+    tools:context=".signupActivity">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginLeft="8dp"
@@ -19,7 +21,17 @@
             android:inputType="phone"
             android:textColor="@android:color/white"
             android:textSize="32sp"
-            android:text="092310528"
+            android:text="09111111"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <EditText
+            android:id="@+id/editName"
+            android:inputType="numberPassword"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:text="jasonkidd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -35,8 +47,8 @@
     </LinearLayout>
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/signin_sign"
-        android:text="Sign In"
+        android:id="@+id/signup_signup"
+        android:text="Sign Up"
         android:textColor="@android:color/white"
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"

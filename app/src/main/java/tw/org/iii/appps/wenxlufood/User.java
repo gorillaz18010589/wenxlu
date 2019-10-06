@@ -2,16 +2,16 @@ package tw.org.iii.appps.wenxlufood;
 
 public class User {
     private  String Name;
-    private  String Passwrod;
+    private  String Password;
 
 
     public User(){
 
     }
 
-    public User(String name, String passwrod) {
+    public User(String name, String  password) {
         Name = name;
-        Passwrod = passwrod;
+        Password = password;
     }
 
     public void setName(String name) {
@@ -19,14 +19,14 @@ public class User {
     }
 
     public void setPasswrod(String passwrod) {
-        Passwrod = passwrod;
+        Password = Password;
     }
 
     public String getName() {
         return Name;
     }
 
-    public String getPasswrod() {
-        return Passwrod;
+    public String getPassword() {
+        return Password;
     }
 }
