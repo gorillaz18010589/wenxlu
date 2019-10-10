@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import tw.org.iii.appps.wenxlufood.Common.Common;
 
 public class signinaActivity extends AppCompatActivity {
     private EditText editPhone,editPassword;
@@ -54,10 +57,13 @@ public class signinaActivity extends AppCompatActivity {
                             User user =  dataSnapshot.child(editPhone.getText().toString()).getValue(User.class);//取得使用者輸入的電話,取得這個User資料
                             Log.v("brad","帳好有存在:" + user.getPassword());
 
-                            //如果這個使用者資料庫的密碼,跟輸入的一樣的話
+                            //如果這個使用者資料庫的密碼,跟輸入的一樣的話,進入menu頁面
                             if(user.getPassword().equals(editPassword.getText().toString())){
-                                Toast.makeText(signinaActivity.this,"密碼正確",Toast.LENGTH_SHORT).show();
+                                Intent homeIntent = new Intent(signinaActivity.this,homeActivity.class);
+                                Common.currentUser = user; //把你輸入的使用者,存到currentUser
+                                startActivity(homeIntent);
                                 Log.v("brad","登入成功使用者輸入密碼是:" + editPassword.getText().toString()+"帳號是:" +user.getName());
+                                finish();
                             }else{
                                 Toast.makeText(signinaActivity.this,"密碼錯誤",Toast.LENGTH_SHORT).show();
                                 Log.v("brad","登入失敗" + user.getPassword()+user.getName());
@@ -68,8 +74,8 @@ public class signinaActivity extends AppCompatActivity {
                             Toast.makeText(signinaActivity.this,"帳號不存在",Toast.LENGTH_SHORT).show();
                             Log.v("brad","帳號不存在");
                         }
-                        String value = dataSnapshot.getValue(String.class);
-                        Log.v("brad", "Value is: " + value);
+//                        String value = dataSnapshot.getValue(String.class);
+//                        Log.v("brad", "Value is: " + value);
                     }
 
                     @Override
