@@ -56,7 +56,7 @@ public class signinaActivity extends AppCompatActivity {
                             //*當資料變更時取得使用者輸入的User物件存放到User
                             User user =  dataSnapshot.child(editPhone.getText().toString()).getValue(User.class);//取得使用者輸入的電話,取得這個User資料
                             Log.v("brad","帳好有存在:" + user.getPassword());
-
+                            user.setPhone(editPhone.getText().toString()); //設置電話
                             //如果這個使用者資料庫的密碼,跟輸入的一樣的話,進入menu頁面
                             if(user.getPassword().equals(editPassword.getText().toString())){
                                 Intent homeIntent = new Intent(signinaActivity.this,homeActivity.class);

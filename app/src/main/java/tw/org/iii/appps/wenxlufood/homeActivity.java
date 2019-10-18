@@ -86,11 +86,12 @@ public class homeActivity extends AppCompatActivity
         category = database.getReference("Category");//取得資料庫分類節點
 
         FloatingActionButton fab = findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent cartIntent = new Intent(homeActivity.this,CartActivity.class);
+                startActivity(cartIntent);
                 Log.v("brad","FloatingActionButoon_fab");
             }
         });
@@ -201,12 +202,19 @@ public class homeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_cart) {
+            Intent cartIntent = new Intent(homeActivity.this,CartActivity.class);
+            startActivity(cartIntent);
 
         } else if (id == R.id.nav_orders) {
+            Intent orderIntent = new Intent(homeActivity.this,OrderStatusActivity.class);
+            startActivity(orderIntent);
 
         } else if (id == R.id.nav_log_out) {
+            Intent sigIn = new Intent(homeActivity.this,signinaActivity.class);
+            sigIn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//關掉上一個activity,登出
+            startActivity(sigIn);
 
         }
 
