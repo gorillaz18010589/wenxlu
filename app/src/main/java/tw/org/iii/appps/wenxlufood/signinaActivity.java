@@ -40,23 +40,17 @@ public class signinaActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//
-//                final ProgressDialog mDialog = new ProgressDialog(signinaActivity.this);
-//                mDialog.setMessage("請稍等.....");
-//                mDialog.show();
-                Log.v("brad","按按鈕有反應但沒進入到 ValueEventLtener" + table_user);
                 table_user.addValueEventListener(new ValueEventListener() {//這個User節點設一個值得監聽者
                     @Override
                     public void onDataChange( DataSnapshot dataSnapshot) {//這個User節點質有變化時近來
 
-//                        mDialog.dismiss();
                         //如果這個user節點裡的你輸入的兒子電話帳號有存在的話
                         if(dataSnapshot.child(editPhone.getText().toString()).exists()){
-
                             //*當資料變更時取得使用者輸入的User物件存放到User
                             User user =  dataSnapshot.child(editPhone.getText().toString()).getValue(User.class);//取得使用者輸入的電話,取得這個User資料
                             Log.v("brad","帳好有存在:" + user.getPassword());
                             user.setPhone(editPhone.getText().toString()); //設置電話
+
                             //如果這個使用者資料庫的密碼,跟輸入的一樣的話,進入menu頁面
                             if(user.getPassword().equals(editPassword.getText().toString())){
                                 Intent homeIntent = new Intent(signinaActivity.this,homeActivity.class);
@@ -70,12 +64,10 @@ public class signinaActivity extends AppCompatActivity {
                             }
 
                         }else{
-//                            mDialog.dismiss();
+
                             Toast.makeText(signinaActivity.this,"帳號不存在",Toast.LENGTH_SHORT).show();
                             Log.v("brad","帳號不存在");
                         }
-//                        String value = dataSnapshot.getValue(String.class);
-//                        Log.v("brad", "Value is: " + value);
                     }
 
                     @Override
@@ -85,6 +77,48 @@ public class signinaActivity extends AppCompatActivity {
                 });
             }
         });
+        Log.v("brad","signin_onCreate");
+    }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.v("brad","signin_onStart()");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.v("brad","signin_onResume()");    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.v("brad","signin_onRestart()");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.v("brad","signin_onPause()");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.v("brad","signin_onStop()");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.v("brad","signin_onDestroy()");
 
     }
 }

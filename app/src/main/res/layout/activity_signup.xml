@@ -28,7 +28,7 @@
 
         <EditText
             android:id="@+id/editName"
-            android:inputType="numberPassword"
+            android:inputType="text"
             android:textColor="@android:color/white"
             android:textSize="32sp"
             android:text="jasonkidd"
@@ -37,7 +37,7 @@
 
         <EditText
             android:id="@+id/editPassword"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:textColor="@android:color/white"
             android:textSize="32sp"
             android:text="pink236545"

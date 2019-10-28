@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderStatusActivity"></activity>
+        <service
+            android:name=".Service.ListenOrder"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".OrderStatusActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".FoodDetailActivity" />
         <activity android:name=".FoodListActivity" />

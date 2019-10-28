@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -55,7 +56,15 @@ public class OrderStatusActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
-        loadOrders(Common.currentUser.getPhone());//輸入使用者的電話,讀取訂單狀態
+        //5.搭配OrederListener ,如果沒有參數來,就是直接點Oeders,其他的話是點推播通知而來
+        if(getIntent()!=null){
+            loadOrders(Common.currentUser.getPhone());//輸入使用者的電話,讀取訂單狀態
+            Log.v("brad","直接點選Order" +Common.currentUser.getPhone());
+        }else{
+            loadOrders(getIntent().getStringExtra("userPhone"));
+            Log.v("brad","點選推播近來:" + getIntent().getStringExtra("userPhone"));
+        }
+
     }
 
 //3.FirebaseRecyclerAdapter<Request,OrderViewHloder>,配置訂單的id,訂單狀態,手機號碼.地址
@@ -75,6 +84,7 @@ public class OrderStatusActivity extends AppCompatActivity {
         };
         recyclerView.setAdapter(adapter);
     }
+
     //4.當狀態是多少時,回復什麼話
     private String convertCodeToStatus(String status) {
         if(status.equals("0")){

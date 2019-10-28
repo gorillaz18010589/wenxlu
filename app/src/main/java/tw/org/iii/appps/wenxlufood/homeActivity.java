@@ -62,6 +62,7 @@ import android.widget.Toast;
 import tw.org.iii.appps.wenxlufood.Common.Common;
 import tw.org.iii.appps.wenxlufood.Interface.ItemClickListener;
 import tw.org.iii.appps.wenxlufood.Model.Category;
+import tw.org.iii.appps.wenxlufood.Service.ListenOrder;
 import tw.org.iii.appps.wenxlufood.ViewHolder.MenuViewHolder;
 
 public class homeActivity extends AppCompatActivity
@@ -116,6 +117,12 @@ public class homeActivity extends AppCompatActivity
         recycler_menu.setLayoutManager(layoutManager);
 
         loadMenu();
+
+        //4.註冊Serive接收推播
+        Intent service = new Intent(homeActivity.this, ListenOrder.class);
+        startService(service);
+
+        Log.v("brad","來到home頁面");
     }
 
 
